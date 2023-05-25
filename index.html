@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Домашняя работа</title>
+</head>
+<body>
+
+<script>
+    function sum() {
+        const a = prompt("Введите 3ех значное число a");
+        const b = prompt("Введите 3ех значное число b");
+
+        if (a.length >= 3 && b.length >= 3) {
+            return a + b;
+        } else {
+            throw 'Введите 3-ех значное число';
+        }
+    }
+
+  sum()
+</script>
+</body>
+</html>
