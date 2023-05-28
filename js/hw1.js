@@ -4,12 +4,12 @@ export function sum (
     res = null ) {
 
     if (res === "plus") {
-        console.log(a + b);
+        //console.log(a + b);
         return a + b;
     }
 
     if (res === 'multiply') {
-        console.log(a * b);
+        //console.log(a * b);
         return a * b;
     }
 }

@@ -1,4 +1,4 @@
-import { sum} from "../hw1";
+import { sum } from "../hw1";
 
 import { countSymbols } from "../hw1";
 
@@ -38,8 +38,8 @@ describe ('userSum', () => {
     let numberA = randomNumber();
     let numberB = randomNumber();
 
-    let a = prompt.mockReturnValue(numberA);
-    let b = prompt.mockReturnValue(numberB);
+    let a = prompt.mockReturnValueOnce(numberA);
+    let b = prompt.mockReturnValueOnce(numberB);
 
     it('sum a + b', () => {
         expect(userSum()).toBe(`Количество символов = 6`);
