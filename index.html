@@ -11,13 +11,97 @@
 
 <script>
     function sum() {
-        const a = prompt("Введите 3ех значное число a");
-        const b = prompt("Введите 3ех значное число b");
 
-        if (a.length >= 3 && b.length >= 3) {
-            return a + b;
-        } else {
-            throw 'Введите 3-ех значное число';
+        let arrayNumbers = [];
+
+        function randomNumber() {
+            return Math.floor( Math.random() * (13 - 1) ) + 1;
+        }
+
+        for (let i = 0; i < 8; i++) {
+            let numberFromPrompt = randomNumber();
+
+            if (arrayNumbers.length > 0) {
+                arrayNumbers.map((el) => {
+                    if (Number(el) === Number(numberFromPrompt)) {
+                        do {
+                            numberFromPrompt = randomNumber();
+                        } while (Number(el) === Number(numberFromPrompt))
+                    }
+                })
+            }
+
+            arrayNumbers.push(numberFromPrompt)
+
+            //console.log(months[randomNumber])
+        }
+
+        console.log(arrayNumbers)
+
+    }
+
+    function foo (a) {
+        let months = {
+            '1': 'Январь',
+            '2': 'Февраль',
+            '3': 'Март',
+            '4': 'Апрель',
+            '5': 'Май',
+            '6': 'Июнь',
+            '7': 'Июль',
+            '8': 'Август',
+            '9': 'Сентябрь',
+            '10': 'Октябрь',
+            '11': 'Ноябрь',
+            '12': 'Декабрь',
+        }
+
+        if (a === 1) {
+            return 'Январь';
+        }
+
+        if (a === 2) {
+            return 'Февраль';
+        }
+
+        if (a === 3) {
+            return 'Март';
+        }
+
+        if (a === 4) {
+            return 'Апрель';
+        }
+
+        if (a === 5) {
+            return 'Май';
+        }
+
+        if (a === 6) {
+            return 'Июнь';
+        }
+
+        if (a === 7) {
+            return 'Июль';
+        }
+
+        if (a === 8) {
+            return 'Август';
+        }
+
+        if (a === 9) {
+            return 'Сентябрь';
+        }
+
+        if (a === 10) {
+            return 'Октябрь';
+        }
+
+        if (a === 11) {
+            return 'Ноябрь';
+        }
+
+        if (a === 12) {
+            return 'Декабрь';
         }
     }
 
