@@ -1,22 +1,27 @@
 import { userAge } from "../hw4";
 
-import { admin } from "../hw4";
-
 describe ('userAge', () => {
+    let prompt;
+    let age;
+    let user;
+    let admin;
 
-    let prompt = jest.spyOn(window, 'prompt');
-    let age = prompt.mockReturnValueOnce(25);
+    beforeEach( ()=> {
+        user = {'name': 'John',}
 
-    let user = {
-        'name': 'John',
-    }
-    user.age = 25;
+        prompt = jest.spyOn(window, 'prompt');
+        age = prompt.mockReturnValueOnce(25);
+
+        admin = Object.assign(user, {'role': 'Admin'})
+
+        userAge(user)
+    })
 
     it('add user age', () => {
-        expect (userAge(user)).toBe(25)
+        expect(user.age).toBe(25)
     })
 
     it('isset admin object', () => {
-        expect (admin(user)).toBe('object');
+        expect (typeof admin).toBe('object');
     })
 })

@@ -2,13 +2,16 @@ import { list } from "../hw7";
 
 describe ('list', () => {
     let el;
+    let input;
+
     beforeEach(() => {
         el = document.createElement('div');
-        list(el)
+        list(el);
+        input = el.querySelector('input');
     })
 
     it('check props', () => {
-        expect(el.querySelector('input')).toBeTruthy();
+        expect(input).toBeTruthy();//is not null
         expect(el.querySelector('button')).toBeTruthy();
         expect(el.querySelector('button').innerText).toBe('Введите текст');
         expect(el.querySelector('ul.history')).toBeTruthy();

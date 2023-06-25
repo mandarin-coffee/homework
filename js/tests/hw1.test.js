@@ -6,13 +6,21 @@ import { userSum } from "../hw1";
 describe ('sum', () => {
     let a = Math.round ( Math.random() * (100, 999) );
     let b = Math.round ( Math.random() * (100, 999) );
+    //let consoleLog;
+
+    beforeEach ( () => {
+        //consoleLog = jest.spyOn(console, 'log');
+        jest.spyOn(console, 'log'); // console.log шпион на функции внутри
+    })
 
     it('sum a + b', () => {
-        expect(sum(1,3, 'plus')).toBe(4);
+        expect(sum(a,b, 'plus')).toBe(a+b);
+        //expect(consoleLog).toHaveBeenCalledWith(a+b);
+        expect(console.log).toHaveBeenCalledWith(a+b);
     });
 
     it('sum a * b', () => {
-        expect(sum(1,3, 'multiply')).toBe(3);
+        expect(sum(a,b, 'multiply')).toBe(a*b);
     });
 
     it('params a, b is number', () => {
@@ -33,15 +41,25 @@ describe ('userSum', () => {
         return Math.round ( Math.random() * (999 - 100)) + 100;
     }
 
-    let prompt = jest.spyOn(window, 'prompt');
+    let prompt;
 
     let numberA = randomNumber();
     let numberB = randomNumber();
 
-    let a = prompt.mockReturnValueOnce(numberA);
-    let b = prompt.mockReturnValueOnce(numberB);
+    beforeEach(() => {
+        prompt = jest.spyOn(window, 'prompt');
+    })
 
     it('sum a + b', () => {
+        prompt.mockReturnValueOnce(numberA);
+        prompt.mockReturnValueOnce(numberB);
         expect(userSum()).toBe(`Количество символов = 6`);
     })
+
+    it('sum a + c', () => {
+        prompt.mockReturnValueOnce(numberA);
+        prompt.mockReturnValueOnce(11);
+        expect(() => userSum()).toThrowError(`Введите 3-ех значное число`); //Для обработки ошибки функцию вызвать в обертке () => {}
+    })
+
 })
