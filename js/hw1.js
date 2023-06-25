@@ -23,14 +23,14 @@ export function userSum () {
 
     let a = prompt('Введите число:');
 
-    let b = prompt('Введите число:');
+    if (a.toString().length >= 3) {
+        let array = String(a).split('');
 
-    console.log({a, b})
+        let res = 0;
 
-    if (a.toString().length >= 3 && b.toString().length >= 3) {
-        let res = a.toString().length + b.toString().length;
+        array.map(el => res + Number(el));
 
-        return `Количество символов = ${res}`;
+        return `Сумма чисел = ${res}`;
     } else {
         throw "Введите 3-ех значное число";
     }

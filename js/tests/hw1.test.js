@@ -44,7 +44,12 @@ describe ('userSum', () => {
     let prompt;
 
     let numberA = randomNumber();
-    let numberB = randomNumber();
+
+    let array = String(numberA).split('');
+
+    let res = 0;
+
+    array.map(el => res + Number(el));
 
     beforeEach(() => {
         prompt = jest.spyOn(window, 'prompt');
@@ -52,12 +57,10 @@ describe ('userSum', () => {
 
     it('sum a + b', () => {
         prompt.mockReturnValueOnce(numberA);
-        prompt.mockReturnValueOnce(numberB);
-        expect(userSum()).toBe(`Количество символов = 6`);
+        expect(userSum()).toBe(`Сумма чисел = ${res}`);
     })
 
     it('sum a + c', () => {
-        prompt.mockReturnValueOnce(numberA);
         prompt.mockReturnValueOnce(11);
         expect(() => userSum()).toThrowError(`Введите 3-ех значное число`); //Для обработки ошибки функцию вызвать в обертке () => {}
     })
