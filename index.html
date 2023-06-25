@@ -11,14 +11,34 @@
 
 <script>
     function sum() {
-        const a = prompt("Введите 3ех значное число a");
-        const b = prompt("Введите 3ех значное число b");
+        let promptRes = '21.06.2023';
 
-        if (a.length >= 3 && b.length >= 3) {
-            return a + b;
-        } else {
-            throw 'Введите 3-ех значное число';
+        let days = {
+            0: 'Воскресенье',
+            1: 'Понедельник',
+            2: 'Вторник',
+            3: 'Среда',
+            4: 'Четверг',
+            5: 'Пятница',
+            6: 'Суббота'
         }
+
+        let array = promptRes.split('.');
+        let str = array.reverse().join('-');
+
+        let date = new Date(str).getDay(); //день недели в виде числа
+
+        for (let key in days) {
+            if (Number(key) === date) {
+                //console.log(days[key])
+            }
+        }
+
+
+        let number = 123;
+
+        let array2 = String(number).split('');
+        console.log(array2)
     }
 
   sum()
