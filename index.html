@@ -102,7 +102,25 @@
 
         if (a === 12) {
             return 'Декабрь';
+
         }
+
+        let array = promptRes.split('.');
+        let str = array.reverse().join('-');
+
+        let date = new Date(str).getDay(); //день недели в виде числа
+
+        for (let key in days) {
+            if (Number(key) === date) {
+                //console.log(days[key])
+            }
+        }
+
+
+        let number = 123;
+
+        let array2 = String(number).split('');
+        console.log(array2)
     }
 
   sum()
