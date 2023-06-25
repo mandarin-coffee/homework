@@ -22,3 +22,12 @@ export function weekDay () {
         }
     }
 }
+
+export function minFromDay () {
+    let getCurrentDay = new Date();
+
+    let getHours = getCurrentDay.getHours();
+    let getMinutes = getCurrentDay.getMinutes();
+
+    return getHours * 60 + getMinutes;
+}

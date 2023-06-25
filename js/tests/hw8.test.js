@@ -1,5 +1,5 @@
 import {weekDay} from "../hw8";
-import {userAge} from "../hw4";
+import {minFromDay} from "../hw8";
 
 describe ('weekDay', () => {
     let prompt;
@@ -22,5 +22,18 @@ describe ('weekDay', () => {
 
     it('Запросить дату и вывести день недели', () => {
         expect(weekDay()).toBe('Среда')
+    });
+})
+
+describe ('minFromDay', () => {
+    let getCurrentDay = new Date();
+
+    let getHours = getCurrentDay.getHours();
+    let getMinutes = getCurrentDay.getMinutes();
+
+    let res = getHours * 60 + getMinutes
+
+    it('Return amount minutes', () => {
+        expect(minFromDay()).toBe(res)
     });
 })
